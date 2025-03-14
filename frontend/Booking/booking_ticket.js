@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
             emailLabel: 'Email',
             cardNumberLabel: 'Numéro de Carte',
             expiryLabel: 'Date d\'Expiration',
-            cvvLabel: 'CVV',
+            cvvLabel: 'CVV',                                                                                                                                                                                                                                                                               
             confirmPaymentButton: 'Confirmer le Paiement',
             confirmationTitle: 'Réservation Confirmée!',
             confirmationMessage: 'Merci pour votre réservation. Un email avec les détails de votre billet a été envoyé à votre adresse email.',
@@ -411,3 +411,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize the UI with default language
     updateTexts();
 });
+
+async function createEvent(name, age) {
+    const response = await fetch('localhost:3000/api/events', {
+        body: JSON.stringify({ name, age }),
+    })
+    const data =  await response.json();
+    console.log(data);
+}
